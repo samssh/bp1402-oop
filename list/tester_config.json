@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "solution_signature": "IntArrayHelper.java",
+  "packages": [
+    {
+      "name": "all tests",
+      "score": 100,
+      "tests": [
+        "testSortInPlace",
+        "testIsSorted",
+        "testFindInSorted",
+        "testAppend",
+        "testChangeSize",
+        "testPop",
+        "testExtend",
+        "testPutAndGet",
+        "testLength",
+        "testToArray",
+        "testEquals",
+        "testToString"
+      ],
+      "aggregator": "min"
+    }
+  ]
+}

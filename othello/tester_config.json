@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "solution_signature": "OthelloGame.java",
+  "packages": [
+    {
+      "name": "logic tests",
+      "score": 70,
+      "tests": [
+        "test4x4",
+        "test4x4undo",
+        "test6x6rand0",
+        "test8x8rand0",
+        "test8x8rand1",
+        "test8x8randDraw"
+      ],
+      "aggregator": "min"
+    },
+    {
+      "name": "logic tests and count of semicolon",
+      "score": 30,
+      "tests": [
+        "test4x4",
+        "test4x4undo",
+        "test6x6rand0",
+        "test8x8rand0",
+        "test8x8rand1",
+        "test8x8randDraw",
+        "testCountLines"
+      ],
+      "aggregator": "min"
+    }
+  ]
+}
