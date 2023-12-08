@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SampleTest {
+public class ListSampleTest {
     @Test
     public void test1() {
         IntArray b = new IntArray(5);
