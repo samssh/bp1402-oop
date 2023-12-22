@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "solution_signature": "view/Cli.java",
+  "packages": [
+    {
+      "name": "All tests",
+      "score": 10,
+      "tests": [
+        "testRandomCommand",
+        "testHeader",
+        "testChangeDirectory",
+        "testMakeDirectory",
+        "testTouchFile"
+      ],
+      "aggregator": "min"
+    }
+  ]
+}
