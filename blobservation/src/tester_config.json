@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "packages": [
+    {
+      "name" : "tests",
+      "score" : 100,
+      "tests" : [
+        "basic_populate_test",
+        "basic_move",
+        "fuse_and_overwrite_test",
+        "clockwise_priority_test",
+        "complex_movement_test",
+        "general_movement_test",
+        "multi_movement_test",
+        "illegal_populate_arguments_test"
+      ],
+      "aggregator" : "min"
+    }
+  ]
+}
