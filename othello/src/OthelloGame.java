@@ -23,7 +23,7 @@ public class OthelloGame {
             return;
         if (isValidMove(blackPlayer, i, j)) {
             board = new OthelloBoard(board, blackPlayer);
-            OthelloDisk disk = new OthelloDisk(blackPlayer);
+            OthelloDisk disk = OthelloDisk.getDisk(blackPlayer);
             Utils.putDisk(disk, board.getDisks(), i, j);
             if (Utils.canPlayerMove(!blackPlayer, board.getDisks())) {
                 board.setBlackPlayerToMove(!blackPlayer);

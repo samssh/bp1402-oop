@@ -1,9 +1,14 @@
 public class OthelloDisk {
     public static final OthelloDisk BLACK = new OthelloDisk(true);
     public static final OthelloDisk WHITE = new OthelloDisk(false);
+
+    public static OthelloDisk getDisk(boolean black){
+        return black ? BLACK : WHITE;
+    }
+
     private final boolean black;
 
-    public OthelloDisk(boolean black) {
+    private OthelloDisk(boolean black) {
         this.black = black;
     }
 

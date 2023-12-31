@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "solution_signature": "Player.java",
+  "packages": [
+    {
+      "name": "all tests",
+      "score": 100,
+      "tests": [
+        "playerTest1",
+        "playerTest2",
+        "test1",
+        "test2",
+        "test3",
+        "test4"
+      ],
+      "aggregator": "min"
+    }
+  ]
+}
