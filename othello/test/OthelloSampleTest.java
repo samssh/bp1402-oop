@@ -49,10 +49,10 @@ public class OthelloSampleTest {
         validateState(game, board, null, playerToMove, n);
         MoveResult result = MoveResult.BLACK_TO_MOVE;
         result = move(game, board, result, n, 0, 1);
-                System.out.println(game.getBoard());
+        System.out.println(game.getBoard());
         System.out.println();
         result = move(game, board, result, n, 0, 0);
-                System.out.println(game.getBoard());
+        System.out.println(game.getBoard());
         System.out.println();
         result = move(game, board, result, n, 1, 0);
         System.out.println(game.getBoard());

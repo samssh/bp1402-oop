@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "solution_signature": "tester/ListTester.java",
+  "packages": [
+    {
+      "name": "all tests",
+      "score": 100,
+      "tests": [
+        "test1",
+        "test2",
+        "test3",
+        "test4",
+        "test5",
+        "test6"
+      ],
+      "aggregator": "min"
+    }
+  ]
+}
