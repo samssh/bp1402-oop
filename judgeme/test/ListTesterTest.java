@@ -12,10 +12,11 @@ public class ListTesterTest {
     @Test(timeout = 4999)
     public void test3() {
         class CorrectImpl implements List {
-            ArrayList<Integer> array = new ArrayList<>();
+            final ArrayList<Integer> array = new ArrayList<>();
+
             @Override
-            public void add(int i,int v) {
-                array.add(i,v);
+            public void add(int i, int v) {
+                array.add(i, v);
             }
 
             @Override
@@ -30,10 +31,11 @@ public class ListTesterTest {
         }
         assertTrue(new ListTester().testList(new CorrectImpl()));
         class Wrong implements List {
-            ArrayList<Integer> array = new ArrayList<>();
+            final ArrayList<Integer> array = new ArrayList<>();
+
             @Override
-            public void add(int i,int v) {
-                array.add(i,v);
+            public void add(int i, int v) {
+                array.add(i, v);
             }
 
             @Override
@@ -47,19 +49,20 @@ public class ListTesterTest {
         }
         assertFalse(new ListTester().testList(new Wrong()));
         class WrongImpl implements List {
-            ArrayList<Integer> array = new ArrayList<>();
-                @Override
-                public void add(int i,int v) {
-                    array.add(i,v);
-                }
+            final ArrayList<Integer> array = new ArrayList<>();
 
-                @Override
-                public int get(int i) {
-                    if (i >= 5){
-                        return 0;
-                    }
-                    return array.get(i);
+            @Override
+            public void add(int i, int v) {
+                array.add(i, v);
+            }
+
+            @Override
+            public int get(int i) {
+                if (i >= 5) {
+                    return 0;
                 }
+                return array.get(i);
+            }
 
             @Override
             public void emptyList() {
@@ -70,21 +73,23 @@ public class ListTesterTest {
     }
 
     @Test(timeout = 4999)
-    public void test4(){
+    public void test4() {
         class ExceptionList implements List {
-            ArrayList<Integer> array = new ArrayList();
+            final ArrayList<Integer> array = new ArrayList<>();
+
             @Override
-            public void add(int i,int v) {
+            public void add(int i, int v) {
                 try {
                     array.add(i, v);
-                }catch (Exception e){}
+                } catch (Exception ignored) {
+                }
             }
 
             @Override
             public int get(int i) {
                 try {
                     return array.get(i);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     return 0;
                 }
 

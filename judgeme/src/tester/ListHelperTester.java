@@ -34,9 +34,6 @@ public class ListHelperTester {
         }
 
         // test integer min value
-        if(arrayHelper.findMax(new MyList()) != Integer.MIN_VALUE){
-            return false;
-        }
-        return true;
+        return arrayHelper.findMax(new MyList()) == Integer.MIN_VALUE;
     }
 }

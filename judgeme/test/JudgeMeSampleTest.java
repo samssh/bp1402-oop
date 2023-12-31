@@ -19,13 +19,10 @@ public class JudgeMeSampleTest {
             @Override
             public void add(int i, int v) {
                 int[] newInts = new int[ints.length + 1];
-                for (int j = 0 ; j < i; j++) {
-                    newInts[j] = ints[j];
-                }
+                if (i >= 0) System.arraycopy(ints, 0, newInts, 0, i);
                 newInts[i] = v;
-                for (int j = i+1 ; j < ints.length+1 ; j++) {
-                    newInts[j] = ints[j-1];
-                }
+                if (ints.length + 1 - (i + 1) >= 0)
+                    System.arraycopy(ints, i + 1 - 1, newInts, i + 1, ints.length + 1 - (i + 1));
                 ints = newInts;
             }
             @Override
@@ -93,7 +90,7 @@ public class JudgeMeSampleTest {
         }
         assertFalse(new StackTester().testStack(new FalseStack()));
         class CorrectStack implements Stack{
-            ArrayList<Integer> elements = new ArrayList<>();
+            final ArrayList<Integer> elements = new ArrayList<>();
 
             @Override
             public void push(int i) {
@@ -110,15 +107,6 @@ public class JudgeMeSampleTest {
         assertTrue(new StackTester().testStack(new CorrectStack()));
     }
 
-    private static int findMax(List list){
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < listSize(list) ; i++) {
-            if (list.get(i) > max) {
-                max = list.get(i);
-            }
-        }
-        return max;
-    }
     private static int listSize(List list){
         boolean hasNext = true;
         int length = 0;

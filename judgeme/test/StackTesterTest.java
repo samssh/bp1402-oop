@@ -11,7 +11,7 @@ public class StackTesterTest {
     @Test(timeout = 4999)
     public void test5(){
         class CorrectStack implements Stack{
-            ArrayList<Integer> elements = new ArrayList<>();
+            final ArrayList<Integer> elements = new ArrayList<>();
 
             @Override
             public void push(int i) {
@@ -27,7 +27,7 @@ public class StackTesterTest {
         }
         assertTrue(new StackTester().testStack(new CorrectStack()));
         class WrongStack implements Stack{
-            ArrayList<Integer> elements = new ArrayList<>();
+            final ArrayList<Integer> elements = new ArrayList<>();
 
             @Override
             public void push(int i) {
@@ -42,7 +42,7 @@ public class StackTesterTest {
         }
         assertFalse(new StackTester().testStack(new WrongStack()));
         class FalseStack implements Stack{
-            ArrayList<Integer> elements = new ArrayList<>();
+            final ArrayList<Integer> elements = new ArrayList<>();
 
             @Override
             public void push(int i) {
@@ -62,7 +62,7 @@ public class StackTesterTest {
     @Test(timeout = 4999)
     public void test6(){
         class ExceptionStack implements Stack {
-            ArrayList<Integer> elements = new ArrayList<>();
+            final ArrayList<Integer> elements = new ArrayList<>();
 
             @Override
             public void push(int i) {
@@ -75,7 +75,7 @@ public class StackTesterTest {
                 try {
                     output = elements.get(elements.size() - 1);
                     elements.remove(elements.size() - 1);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 return output;
             }

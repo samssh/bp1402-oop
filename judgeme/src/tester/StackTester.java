@@ -12,8 +12,8 @@ public class StackTester {
     public boolean testPopAndPush(Stack stack){
         int[] input = {1,2,3,4,5,6};
         try {
-            for (int i = 0; i < input.length; i++) {
-                stack.push(input[i]);
+            for (int j : input) {
+                stack.push(j);
             }
         }catch (Exception e) {
             return false;
