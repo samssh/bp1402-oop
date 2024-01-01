@@ -127,9 +127,9 @@ public class BlobservationTest {
         map.add(b8.serialize());
         map.add(b9.serialize());
 
-        Blobservation solution = new Blobservation(8, 8);
+        Solution solution = new Solution(8, 8);
         solution.populate(map);
-        Solution blobservation = new Solution(8, 8);
+        Blobservation blobservation = new Blobservation(8, 8);
         blobservation.populate(map);
         Blob[][] table = blobservation.getTable();
         ArashBlob[][] targetTable = solution.getTable();
@@ -226,7 +226,7 @@ public class BlobservationTest {
             int width = getRandomInteger(random, 8, 50);
             int height = getRandomInteger(random, 8, 50);
 
-            Blobservation Blobservation = new Blobservation(width, height);
+            Blobservation blobservation = new Blobservation(width, height);
 
             int count = getRandomInteger(random, 64, width * height);
             int maxSize = getRandomInteger(random, 1, 21);
@@ -242,7 +242,7 @@ public class BlobservationTest {
 
             Solution s = new Solution(width, height);
             s.populate(map);
-            solution.populate(map);
+            blobservation.populate(map);
 
 
             // act / test
@@ -608,7 +608,7 @@ public class BlobservationTest {
                 return Math.atan((b.getX() - pivot.getX()) / (double) (pivot.getY() - b.getY())) + Math.PI;
             } else if (b.getY() > pivot.getY() && b.getX() < pivot.getX()) {
                 // third quarter SW 180 < t < 270
-                return Math.atan((b.getX() - pivot.getX()) / (double) (pivot.getY() - b.getY())) + 1.5 * Math.PI;
+                return Math.atan((b.getX() - pivot.getX()) / (double) (pivot.getY() - b.getY())) + Math.PI;
             } else if (b.getY() < pivot.getY() && b.getX() < pivot.getX()) {
                 // fourth quarter NW 270 < t < 360
                 return Math.atan((b.getX() - pivot.getX()) / (double) (pivot.getY() - b.getY())) + 2 * Math.PI;
