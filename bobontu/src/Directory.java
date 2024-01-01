@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class Directory extends Base {
+public class Directory extends Status {
 
     private final Directory parentDirectory;
 
-    private final ArrayList<Base> contents = new ArrayList<>();
+    private final ArrayList<Status> contents = new ArrayList<>();
 
     public Directory(String name, Directory parentDirectory) {
         super(name);
         this.parentDirectory = parentDirectory;
     }
 
-    public void addContent(Base ctx) {
+    public void addContent(Status ctx) {
         contents.add(ctx);
     }
 
@@ -19,19 +19,14 @@ public class Directory extends Base {
         return parentDirectory;
     }
 
-    public ArrayList<Base> getContent() {
+    public ArrayList<Status> getContent() {
         return contents;
     }
 
-    @Override
-    public String getName() {
-        return this.name + "/";
-    }
-
     public Directory getDirectory(String name) {
-        for (Base base : contents) {
-            if (base.getName().equals(name + "/"))
-                return (Directory) base;
+        for (Status status : contents) {
+            if (status.getName().equals(name) && status instanceof Directory)
+                return (Directory) status;
         }
         return null;
     }

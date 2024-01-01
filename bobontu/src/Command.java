@@ -1,7 +1,7 @@
 public class Command {
-    private String command;
+    private final String command;
 
-    private String arg;
+    private final String arg;
 
     public Command(String command,String arg) {
         this.command = command;
@@ -12,15 +12,7 @@ public class Command {
         return command;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
-    public String getArgs() {
+    public String getArg() {
         return arg;
-    }
-
-    public void setArg(String arg) {
-        this.arg = arg;
     }
 }

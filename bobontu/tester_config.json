@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "solution_signature": "view/Cli.java",
+  "solution_signature": "Cli.java",
   "packages": [
     {
       "name": "All tests",
@@ -10,7 +10,8 @@
         "testHeader",
         "testChangeDirectory",
         "testMakeDirectory",
-        "testTouchFile"
+        "testTouchMkdir",
+        "testSample"
       ],
       "aggregator": "min"
     }

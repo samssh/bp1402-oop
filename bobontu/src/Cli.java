@@ -1,7 +1,5 @@
 public class Cli {
-
     private final Shell shell;
-
     private final String computerName;
     private final String user;
 
@@ -15,48 +13,52 @@ public class Cli {
         switch (command.getCommand()) {
             case "cd":
                 try {
-                    shell.changeDirectory(command.getArgs());
-                } catch (NoSuchDirectoryException e) {
-                    return e.getMessage();
+                    shell.changeDirectory(command.getArg());
+                    return "";
+                } catch (FileException e) {
+                    return "cd: " + e.getMessage();
                 }
-                break;
             case "ls":
-                String result = shell.listDirectories();
-                if (!result.isEmpty())
-                    return result;
-                break;
+                return shell.listStatus();
             case "mkdir":
                 try {
-                    shell.createDirectory(command.getArgs());
-                } catch (CreateDirectoryException e) {
-                    return e.getMessage();
+                    shell.createDirectory(command.getArg());
+                    return "";
+                } catch (FileException e) {
+                    return "mkdir: cannot create directory " + e.getMessage();
                 }
-                break;
             case "touch":
-                shell.createFile(command.getArgs());
-                break;
+                shell.createFile(command.getArg());
+                return "";
             case "pwd":
-                String location = shell.printWorkingDirectory();
-                return String.format("home/%s/%s", user, location);
+                return shell.printWorkingDirectory();
             case "rmdir":
-                break;
+                try {
+                    shell.removeDirectory(command.getArg());
+                    return "";
+                } catch (FileException e) {
+                    return "rmdir: failed to remove " + e.getMessage();
+                }
             case "rm":
-                break;
-            case "sort":
-                break;
-            case "":
-                break;
+                try {
+                    shell.removeFile(command.getArg());
+                    return "";
+                } catch (FileException e) {
+                    return "rm: cannot remove " + e.getMessage();
+                }
             default:
-                return "CMD: Command not found!";
+                return command.getCommand() + ": command not found";
         }
-        return "";
     }
 
 
     public String getHeader() {
-        if (shell.printWorkingDirectory().isEmpty())
-            return String.format("%s@%s:~%s$ ", user, computerName, shell.printWorkingDirectory());
-        else
-            return String.format("%s@%s:~/%s$ ", user, computerName, shell.printWorkingDirectory());
+        Directory dummy = shell.getActiveDirectory();
+        StringBuilder location = new StringBuilder();
+        while (dummy.getParentDirectory() != null) {
+            location.insert(0, "/" + dummy.getName());
+            dummy = dummy.getParentDirectory();
+        }
+        return String.format("%s@%s:~%s$", user, computerName, location);
     }
 }

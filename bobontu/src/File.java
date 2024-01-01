@@ -1,10 +1,5 @@
-public class File extends Base {
-
+public class File extends Status {
     public File(String name) {
         super(name);
     }
-
-    public void sort() {
-    }
-
 }

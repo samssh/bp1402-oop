@@ -1,5 +1,5 @@
-public class NoSuchDirectoryException extends Exception {
-    public NoSuchDirectoryException(String message) {
-        super(message);
+public class NoSuchDirectoryException extends FileException {
+    public NoSuchDirectoryException(String name) {
+        super("'" + name + "': No such file or directory");
     }
 }
