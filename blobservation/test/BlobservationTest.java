@@ -127,12 +127,47 @@ public class BlobservationTest {
         map.add(b8.serialize());
         map.add(b9.serialize());
 
+        Blobservation blobservation = new Blobservation(8, 8);
         Solution solution = new Solution(8, 8);
         solution.populate(map);
-        Blobservation blobservation = new Blobservation(8, 8);
         blobservation.populate(map);
         Blob[][] table = blobservation.getTable();
         ArashBlob[][] targetTable = solution.getTable();
+
+
+        // act
+        blobservation.move();
+
+
+        // test
+        solution.move();
+        assertTableEquals(targetTable, table);
+
+
+        // act
+        blobservation.move();
+
+
+        // test
+        solution.move();
+        assertTableEquals(targetTable, table);
+
+
+        // act
+        blobservation.move();
+
+
+        // test
+        solution.move();
+        assertTableEquals(targetTable, table);
+
+        // act
+        blobservation.move();
+
+
+        // test
+        solution.move();
+        assertTableEquals(targetTable, table);
 
 
         // act
@@ -240,8 +275,8 @@ public class BlobservationTest {
                 map.add(new ArashBlob(x, y, size).serialize());
             }
 
-            Solution s = new Solution(width, height);
-            s.populate(map);
+            Solution solution = new Solution(width, height);
+            solution.populate(map);
             blobservation.populate(map);
 
 
@@ -250,8 +285,8 @@ public class BlobservationTest {
             for (int i = 0; i < testCount; i++) {
                 int steps = getRandomInteger(random, 1, 4);
                 blobservation.move(steps);
-                s.move(steps);
-                assertTableEquals(s.getTable(), blobservation.getTable());
+                solution.move(steps);
+                assertTableEquals(solution.getTable(), blobservation.getTable());
             }
         }
     }
