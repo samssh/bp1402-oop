@@ -41,7 +41,7 @@ public class CliSampleTest {
 
         Command command8 = new Command("rm","test1");
         assertEquals("user@test:~/test$",cli.getHeader());
-        assertEquals("rm: test1: No such file or directory",cli.processCommand(command8));
+        assertEquals("rm: cannot remove 'test1': No such file or directory",cli.processCommand(command8));
 
         Command command9 = new Command("rmdir","test2");
         assertEquals("user@test:~/test$",cli.getHeader());

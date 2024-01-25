@@ -1,4 +1,4 @@
-public class Utils {
+public class BlobUtils {
     public static int dist(Blob a, Blob b) {
         return Math.max(Math.abs(a.getX() - b.getX()), Math.abs(a.getY() - b.getY()));
     }

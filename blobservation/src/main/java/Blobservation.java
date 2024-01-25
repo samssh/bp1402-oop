@@ -30,7 +30,7 @@ public class Blobservation {
     private static int findMinDist(Blob blob, List<Blob> targets) {
         int min = Integer.MAX_VALUE;
         for (Blob b : targets)
-            min = Math.min(min, Utils.dist(b, blob));
+            min = Math.min(min, BlobUtils.dist(b, blob));
         return min;
     }
 
@@ -114,10 +114,10 @@ public class Blobservation {
                 }
 
                 int minDist = findMinDist(arashBlob, targets);
-                targets = targets.stream().filter(blob1 -> Utils.dist(blob1, arashBlob) == minDist).collect(Collectors.toList());
+                targets = targets.stream().filter(blob1 -> BlobUtils.dist(blob1, arashBlob) == minDist).collect(Collectors.toList());
                 int maxSize = findMaxSize(targets);
                 targets = targets.stream().filter(blob1 -> blob1.getSize() == maxSize).collect(Collectors.toList());
-                Blob target = targets.stream().min(Comparator.comparingDouble(b -> Utils.getAngle(arashBlob, b))).get();
+                Blob target = targets.stream().min(Comparator.comparingDouble(b -> BlobUtils.getAngle(arashBlob, b))).get();
                 move(arashBlob, target);
             }
         }

@@ -1,4 +1,5 @@
-public class Utils {
+public abstract class Utils {
+
     private static final int[] dxs = new int[]{1, 1, 1, 0, 0, -1, -1, -1};
     private final static int[] dys = new int[]{1, 0, -1, 1, -1, 1, 0, -1};
 
@@ -21,11 +22,11 @@ public class Utils {
         if (disks[i][j] != null)
             return false;
         for (int k = 0; k < 8; k++) {
-            int dx = Utils.dxs[k];
-            int dy = Utils.dys[k];
+            int dx = dxs[k];
+            int dy = dys[k];
             int x = i + dx, y = j + dy;
             boolean seenOtherColor = false;
-            while (Utils.isInBound(x, y, disks.length) && disks[x][y] != null) {
+            while (isInBound(x, y, disks.length) && disks[x][y] != null) {
                 if (disks[x][y].isBlack() == black) {
                     if (seenOtherColor) return true;
                     else break;
@@ -42,12 +43,12 @@ public class Utils {
     public static void putDisk(OthelloDisk disk, OthelloDisk[][] disks, int i, int j) {
         disks[i][j] = disk;
         for (int k = 0; k < 8; k++) {
-            int dx = Utils.dxs[k];
-            int dy = Utils.dys[k];
+            int dx = dxs[k];
+            int dy = dys[k];
             int x = i + dx, y = j + dy;
             boolean seenOtherColor = false;
             boolean changeOtherColors = false;
-            while (Utils.isInBound(x, y, disks.length) && disks[x][y] != null) {
+            while (isInBound(x, y, disks.length) && disks[x][y] != null) {
                 if (disks[x][y].isBlack() == disk.isBlack()) {
                     if (seenOtherColor) changeOtherColors = true;
                     else break;
@@ -61,7 +62,7 @@ public class Utils {
             if (changeOtherColors) {
                 x = i + dx;
                 y = j + dy;
-                while (Utils.isInBound(x, y, disks.length) && disks[x][y] != null &&
+                while (isInBound(x, y, disks.length) && disks[x][y] != null &&
                         disks[x][y].isBlack() != disk.isBlack()) {
                     disks[x][y] = disk;
                     x += dx;
