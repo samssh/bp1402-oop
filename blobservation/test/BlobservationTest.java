@@ -410,7 +410,7 @@ public class BlobservationTest {
 
 
     private static class ArashBlob {
-        protected int x,y,size;
+        protected int x, y, size;
 
         public ArashBlob(int x, int y, int size) {
             this.x = x;
@@ -496,7 +496,7 @@ public class BlobservationTest {
             }
 
 
-            for(Map<String, Integer> blob : blobs) {
+            for (Map<String, Integer> blob : blobs) {
                 int x = blob.get("x");
                 int y = blob.get("y");
                 int size = blob.get("size");
@@ -587,13 +587,13 @@ public class BlobservationTest {
                 if (target.getY() > b.getY())
                     y += 1;
                 else
-                    y-= 1;
+                    y -= 1;
             } else if (target.getY() == b.getY()) {
                 if (target.getX() > b.getX())
                     x += 1;
                 else
                     x -= 1;
-            } else  {
+            } else {
                 x += (target.getX() > b.getX()) ? 1 : -1;
                 y += (target.getY() > b.getY()) ? 1 : -1;
             }
@@ -606,7 +606,7 @@ public class BlobservationTest {
                     if (queue[i][j].isEmpty())
                         continue;
                     int size = 0;
-                    for (ArashBlob b : (List<ArashBlob>)queue[i][j]) {
+                    for (ArashBlob b : (List<ArashBlob>) queue[i][j]) {
                         size += b.getSize();
                     }
                     table[i][j] = new ArashBlob(i, j, size);
